@@ -35,4 +35,10 @@ type TupleReverse<T extends any[], U extends any[] = []> = {
     0: TupleReverse<TupleTail<T>, TupleUnshift<U, TupleHead<T>>>
     1: U
 }[T extends [] ? 1 : 0]
+
+type TupleMapId<T extends any[], U = never> = {
+    0: TupleMapId<TupleTail<T>,TupleHead<T>['id']|U>
+    1: U
+}[T extends [] ? 1 : 0]
+
 ```
